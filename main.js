@@ -11,14 +11,14 @@ const originalTitle = document.querySelector('.original-title')
 const originalTitleRomanised = document.querySelector('.original-title-romanised')
 const bgImage = document.querySelector('.apiDisplay')
 const results = document.querySelector('.results')
-        const titleArray = []
-        const originalTitleArray = []
-        const originalTitleRomanisedArray = []
-        const dateArray = []
-        const directorArray = []
-        const runtimeArray = []
-        const rtScoreArray = []
-        const imageArray = []
+        let titleArray = []
+        let originalTitleArray = []
+        let originalTitleRomanisedArray = []
+        let dateArray = []
+        let directorArray = []
+        let runtimeArray = []
+        let rtScoreArray = []
+        let imageArray = []
 
 
 button.addEventListener('click', apiRequest)
@@ -53,12 +53,11 @@ async function apiRequest(){
             for(let j = 0; j < titleArray.length; j++){
         if(titleName ==  data[j].title.toLowerCase() || titleName == data[j].title.toUpperCase()|| titleName == data[j].title) {
             
-            console.log('works')
-            console.log(titleArray)
+            
             title.innerText = 'Movie Title: ' + titleArray[j]
             originalTitle.innerText = 'Original title: ' + originalTitleArray[j]
             originalTitleRomanised.innerText = 'Original title romanised: ' + originalTitleRomanisedArray[j]
-            release.innerText = 'Relase date: ' + dateArray[j]
+            release.innerText = 'Release date: ' + dateArray[j]
             director.innerText = 'Director: ' + directorArray[j]
             runtime.innerText = 'Movie runtime: ' + runtimeArray[j]
             rating.innerText = 'Movie RT rating: ' + rtScoreArray[j]
