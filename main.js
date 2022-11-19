@@ -63,9 +63,9 @@ async function apiRequest(){
             image.src = imageArray[j]
             
             //show apiDisplay content, remove placeholder image
-            bgImage.style.background = 'none'
                 image.style.visibility = 'visible'
                 results.style.visibility = 'visible'
+                bgImage.style.background = 'none'
         }
             }
     }catch(error){
