@@ -38,6 +38,7 @@ async function apiRequest(){
         const data = await response.json()
         console.log(data)
         
+        //go through the data objects, fill all of the arrays with it's needed elements
         for(let i = 0; i < data.length; i++){
         titleArray.push(data[i].title)
         originalTitleArray.push(data[i].original_title)
