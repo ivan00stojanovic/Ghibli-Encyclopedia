@@ -50,8 +50,9 @@ async function apiRequest(){
         }
     
             for(let j = 0; j < titleArray.length; j++){
-        if(titleName === data[j].title.toLowerCase() || titleName === data[j].title.toUpperCase()) {
+        if(titleName == data[j].title.toLowerCase() || titleName == data[j].title.toUpperCase()) {
             console.log('works')
+            console.log(titleArray)
             title.innerText = 'Movie Title: ' + titleArray[j]
             originalTitle.innerText = 'Original title: ' + originalTitleArray[j]
             originalTitleRomanised.innerText = 'Original title romanised: ' + originalTitleRomanisedArray[j]
@@ -60,12 +61,11 @@ async function apiRequest(){
             runtime.innerText = 'Movie runtime: ' + runtimeArray[j]
             rating.innerText = 'Movie RT rating: ' + rtScoreArray[j]
             image.src = imageArray[j]
-        }
-            }
-                bgImage.style.background = 'none'
+            bgImage.style.background = 'none'
                 image.style.visibility = 'visible'
                 results.style.visibility = 'visible'
-
+        }
+            }
     }catch(error){
         console.log(error)
     }

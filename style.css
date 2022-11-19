@@ -7,21 +7,23 @@
     list-style: none;
     font-family: 'Amaranth', sans-serif;  
 }
+
 button{
     width: 100px;
     height: 50px;
-    border-radius: 10px;
-    
+    border-radius: 10px;    
 }
 
 ::placeholder{
-    color: #5390ebea;
+    color: #1a9cce;
 }
 
 input{
    height: 30px;
    width: 200px;
    font-size: 1.2em;
+   color: #1a9cce;
+   border-radius: 10px;
 }
 
 body{
@@ -31,7 +33,7 @@ body{
     align-items: center;
     height: 100vh;
     min-width: 100vh;  
-    background-color: skyblue; 
+    background-color: #1a9cce; 
     
 }
 .inputSection{
@@ -41,14 +43,16 @@ body{
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .test{
     float: right;
     width: 90%;
-    height: 95%;
+    height: 100%;
     background-size: 100%;
     max-width: 70%;
+    border-radius: 10px;
 }
 
 .apiDisplay{
@@ -56,16 +60,17 @@ body{
     justify-content: start;
     align-items: flex-start;
     width: 50%;
-    height: 400px;
+    height: 550px;
     background-image: url(https://cdn.wallpapersafari.com/94/19/iGUqES.png);
     background-size: 100%;
+    
 }
 
 .change{
     visibility: hidden;
     display: block;
     border-radius: 15px;
-    border: 5px solid #5390ebea;
+    border-left: 5px solid hwb(187 85% 5%);
     
 }
 
@@ -83,11 +88,31 @@ visibility: hidden;
     border: 5px solid hwb(187 85% 5%);
     border-radius: 15px;
     
+    
 }
 
 .info{
-    border-bottom: 2px solid #5390ebea;
+    border-bottom: 3px solid hwb(187 85% 5%);
+    border-radius: 10px;
     font-size: 1.2em;
 }
+
+footer > img{
+    width: 1000px;
+    height: 250px;
+    border: 2px solid #1a9cce;
+    margin-top: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+
+
+
+
+
+
 
 
