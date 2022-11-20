@@ -9,9 +9,16 @@
 }
 
 button{
-    width: 100px;
+    width: 120px;
     height: 50px;
-    border-radius: 10px;    
+    padding: 10px;
+    border-radius: 25px;  
+    background-color: hwb(187 85% 5%);  
+}
+
+button:hover{
+    background-color: #1a9cce;
+    color: hwb(187 85% 5%);
 }
 
 ::placeholder{
@@ -24,6 +31,7 @@ input{
    font-size: 1.2em;
    color: #1a9cce;
    border-radius: 10px;
+   background-color: hwb(187 85% 5%);
 }
 
 body{
@@ -105,5 +113,25 @@ footer > img{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-
 }
+
+/*@media only screen and (max-width: 321px){
+    
+    *{
+        margin-right: 140px;
+    }
+
+    body{
+        margin: 300px 0px;
+    }
+
+    .apiDisplay{
+        width: 42%;
+        margin-right: 290px;
+        height: 50%;
+        background-image: url(https://cdn.wallpapersafari.com/94/19/iGUqES.png);
+        background-size: 370px 420px;
+    }
+} */
+
+
