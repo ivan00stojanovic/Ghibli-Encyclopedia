@@ -52,6 +52,7 @@ async function apiRequest(){
             //fill the apiDisplay div content with the inputed movie title
             for(let j = 0; j < titleArray.length; j++){
         if(titleName ==  data[j].title.toLowerCase() || titleName == data[j].title.toUpperCase()|| titleName == data[j].title) {
+            
             console.log('works')
             console.log(titleArray)
             title.innerText = 'Movie Title: ' + titleArray[j]
@@ -61,7 +62,8 @@ async function apiRequest(){
             director.innerText = 'Director: ' + directorArray[j]
             runtime.innerText = 'Movie runtime: ' + runtimeArray[j]
             rating.innerText = 'Movie RT rating: ' + rtScoreArray[j]
-            image.src = imageArray[j]
+            image.src = imageArray[j] 
+            input.value = ''
             
             //show apiDisplay content, remove placeholder image
                 image.style.visibility = 'visible'
