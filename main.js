@@ -28,6 +28,7 @@ input.addEventListener("keypress", e => {
     if (e.key === "Enter") {
       e.preventDefault();
       button.click();
+      input.value =''
     }
   });
 
@@ -62,7 +63,6 @@ async function apiRequest(){
             runtime.innerText = 'Movie runtime: ' + runtimeArray[j]
             rating.innerText = 'Movie RT rating: ' + rtScoreArray[j]
             image.src = imageArray[j] 
-            input.value = ''
             
             //show apiDisplay content, remove placeholder image
                 image.style.visibility = 'visible'
