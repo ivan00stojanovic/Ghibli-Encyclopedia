@@ -121,6 +121,15 @@ footer > img{
     align-items: flex-end;
 }
 
+.note{
+    margin-top: 1rem;
+}
+a{
+    margin-top: 1rem;
+    color: white;
+    font-family: 'Amaranth', sans-serif;
+}
+
 /*@media only screen and (max-width: 321px){
     
     *{
