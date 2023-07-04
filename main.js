@@ -35,7 +35,7 @@ async function apiRequest() {
     if (movie) {
       displayMovieDetails(movie);
     } else {
-        input.value = '';
+        alert('Wrong input, probably a misspell :(');
     }
   } catch (error) {
     console.log(error);
@@ -61,4 +61,4 @@ function displayMovieDetails(movie) {
   movieDetails.results.style.visibility = 'hidden';
   movieDetails.bgImage.style.background = '';
 
-
+  
