@@ -35,7 +35,7 @@ input.addEventListener("keypress", e => {
 async function apiRequest(){
     try{
         const titleName = document.querySelector('input').value
-        const response = await fetch(`https://ghibliapi.herokuapp.com/films`)
+        const response = await fetch(`https://ghibliapi.vercel.app/films`)
         const data = await response.json()
         console.log(data)
         

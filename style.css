@@ -84,7 +84,7 @@ body{
     border-radius: 15px;
     border-left: 5px solid hwb(187 85% 5%);
     width: 650px;
-    height: 500px;
+    height: 535px;
     
 }
 
@@ -107,7 +107,7 @@ visibility: hidden;
 
 .info{
     border-bottom: 3px solid hwb(187 85% 5%);
-    border-radius: 10px;
+    border-radius: 1px;
     font-size: 1.4em;
 }
 
