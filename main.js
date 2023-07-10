@@ -138,3 +138,4 @@ function displayMovieDetails(movie) {
 //         console.log(error)
 //     }
 // }
+// Leaving this on new branch
