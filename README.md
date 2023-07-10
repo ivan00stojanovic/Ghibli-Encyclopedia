@@ -7,4 +7,4 @@ Tech used: HTML, CSS, JS
 
 # Optimizations:
 
-Will add media queries in order for the app to make it fully responsive
+Will add media queries in order for the app to make it fully responsive and accessible to mobile devices
