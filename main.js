@@ -29,7 +29,7 @@ async function apiRequest() {
     const titleName = document.querySelector('input').value.toLowerCase();
     const response = await fetch('https://ghibliapi.vercel.app/films');
     const data = await response.json();
-    console.log(data);
+    
 
     let movie;
     
