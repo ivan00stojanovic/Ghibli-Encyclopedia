@@ -29,7 +29,6 @@ async function apiRequest() {
     const titleName = document.querySelector('input').value.toLowerCase();
     const response = await fetch('https://ghibliapi.vercel.app/films');
     const data = await response.json();
-    
 
     let movie;
     
@@ -38,12 +37,14 @@ async function apiRequest() {
 
     // Check for an exact match
     movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()) === modifiedTitleName);
-
+    console.log(movie)
+    
     if (!movie) {
       // Check for a partial match
       movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()).includes(modifiedTitleName));
+      console.log(movie)
     }
-
+    //return the movie info or reset the input
     if (movie) {
       displayMovieDetails(movie);
     } else {
