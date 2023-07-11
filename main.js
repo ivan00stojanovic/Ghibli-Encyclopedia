@@ -26,20 +26,37 @@ input.addEventListener("keypress", e => {
 
 async function apiRequest() {
   try {
-    const titleName = input.value.toLowerCase();
-    const response = await fetch(`https://ghibliapi.vercel.app/films`);
+    const titleName = document.querySelector('input').value.toLowerCase();
+    const response = await fetch('https://ghibliapi.vercel.app/films');
     const data = await response.json();
-    movieData = data;
 
-    const movie = movieData.find(movie => movie.title.toLowerCase() === titleName);
+    let movie;
+    
+    // Remove apostrophes from user input
+    const modifiedTitleName = removeApostrophes(titleName);
+
+    // Check for an exact match
+    movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()) === modifiedTitleName);
+    console.log(movie)
+    
+    if (!movie) {
+      // Check for a partial match
+      movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()).includes(modifiedTitleName));
+      console.log(movie)
+    }
+    //return the movie info or reset the input
     if (movie) {
       displayMovieDetails(movie);
     } else {
-        alert('Wrong input, probably a misspell :(');
+      alert('Wrong input, probably a misspell :(');
     }
   } catch (error) {
     console.log(error);
   }
+}
+
+function removeApostrophes(str) {
+  return str.replaceAll("'", '');
 }
 
 function displayMovieDetails(movie) {
@@ -61,4 +78,80 @@ function displayMovieDetails(movie) {
   movieDetails.results.style.visibility = 'hidden';
   movieDetails.bgImage.style.background = '';
 
-  
+//   const button = document.querySelector('button')
+// const input = document.querySelector('.input')
+// const name = document.querySelector('h3')
+// const title = document.querySelector('.title')
+// const release = document.querySelector('.release-date')
+// const director = document.querySelector('.director')
+// const runtime = document.querySelector('.runtime')
+// const image = document.querySelector('.change')
+// const rating = document.querySelector('.rtScore')
+// const originalTitle = document.querySelector('.original-title')
+// const originalTitleRomanised = document.querySelector('.original-title-romanised')
+// const bgImage = document.querySelector('.apiDisplay')
+// const results = document.querySelector('.results')
+//         let titleArray = []
+//         let originalTitleArray = []
+//         let originalTitleRomanisedArray = []
+//         let dateArray = []
+//         let directorArray = []
+//         let runtimeArray = []
+//         let rtScoreArray = []
+//         let imageArray = []
+
+
+//PRE FACTORED CODE
+// button.addEventListener('click', apiRequest)
+
+// //Syncing the enter key to trigger a click event
+// input.addEventListener("keypress", e => {
+//     if (e.key === "Enter") {
+//       e.preventDefault();
+//       button.click();
+//       input.value =''
+//     }
+//   });
+
+// async function apiRequest(){
+//     try{
+//         const titleName = document.querySelector('input').value
+//         const response = await fetch(`https://ghibliapi.vercel.app/films`)
+//         const data = await response.json()
+//         console.log(data)
+        
+//         //go through the data objects, fill all of the arrays with it's needed elements
+//         for(let i = 0; i < data.length; i++){
+//         titleArray.push(data[i].title)
+//         originalTitleArray.push(data[i].original_title)
+//         originalTitleRomanisedArray.push(data[i].original_title_romanised)
+//         dateArray.push(data[i].release_date)
+//             directorArray.push(data[i].director)
+//             runtimeArray.push(data[i].running_time)
+//             imageArray.push(data[i].image)
+//             rtScoreArray.push(data[i].rt_score)
+//         }
+//             //fill the apiDisplay div content with the inputed movie title
+//             for(let j = 0; j < titleArray.length; j++){
+//         if(titleName ==  data[j].title.toLowerCase() || titleName == data[j].title.toUpperCase()|| titleName == data[j].title) {
+            
+            
+//             title.innerText = 'Movie Title: ' + titleArray[j]
+//             originalTitle.innerText = 'Original title: ' + originalTitleArray[j]
+//             originalTitleRomanised.innerText = 'Original title romanised: ' + originalTitleRomanisedArray[j]
+//             release.innerText = 'Release date: ' + dateArray[j]
+//             director.innerText = 'Director: ' + directorArray[j]
+//             runtime.innerText = 'Movie runtime: ' + runtimeArray[j]
+//             rating.innerText = 'Movie RT rating: ' + rtScoreArray[j]
+//             image.src = imageArray[j] 
+            
+//             //show apiDisplay content, remove placeholder image
+//                 image.style.visibility = 'visible'
+//                 results.style.visibility = 'visible'
+//                 bgImage.style.background = 'none'
+//         }
+//             }
+//     }catch(error){
+//         console.log(error)
+//     }
+// }
