@@ -26,20 +26,36 @@ input.addEventListener("keypress", e => {
 
 async function apiRequest() {
   try {
-    const titleName = input.value.toLowerCase();
-    const response = await fetch(`https://ghibliapi.vercel.app/films`);
+    const titleName = document.querySelector('input').value.toLowerCase();
+    const response = await fetch('https://ghibliapi.vercel.app/films');
     const data = await response.json();
-    movieData = data;
+    console.log(data);
 
-    const movie = movieData.find(movie => movie.title.toLowerCase() === titleName);
+    let movie;
+    
+    // Remove apostrophes from user input
+    const modifiedTitleName = removeApostrophes(titleName);
+
+    // Check for an exact match
+    movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()) === modifiedTitleName);
+
+    if (!movie) {
+      // Check for a partial match
+      movie = data.find(movie => removeApostrophes(movie.title.toLowerCase()).includes(modifiedTitleName));
+    }
+
     if (movie) {
       displayMovieDetails(movie);
     } else {
-        input.value = '';
+      input.value = '';
     }
   } catch (error) {
     console.log(error);
   }
+}
+
+function removeApostrophes(str) {
+  return str.replaceAll("'", '');
 }
 
 function displayMovieDetails(movie) {
