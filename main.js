@@ -27,7 +27,7 @@ input.addEventListener("keypress", e => {
 async function apiRequest() {
   try {
     const titleName = document.querySelector('input').value.toLowerCase();
-    const response = await fetch('https://ghibliapi.vercel.app/films');
+    const response = await fetch('https://ghibli.rest/films');
     const data = await response.json();
 
     let movie;
@@ -116,7 +116,7 @@ function displayMovieDetails(movie) {
 // async function apiRequest(){
 //     try{
 //         const titleName = document.querySelector('input').value
-//         const response = await fetch(`https://ghibliapi.vercel.app/films`)
+//         const response = await fetch(`https://ghibli.rest/films`)
 //         const data = await response.json()
 //         console.log(data)
         
